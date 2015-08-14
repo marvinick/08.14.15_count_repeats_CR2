@@ -9,13 +9,27 @@
 
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
-            $input = array("word");
+            $input = "word";
 
             //Act
             $result = $test_RepeatCounter->countRepeats($input);
 
             //Assert
             $this->assertEquals(array('word' => 1), $result);
+        }
+
+
+        function test_countRepeats_multiple_words() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = "word master manipulator master";
+
+            //Act
+            $result = $test_RepeatCounter->countRepeats($input);
+
+            //Assert
+            $this->assertEquals(array('word' => 1, 'master' => 2, 'manipulator' => 1 ), $result);
         }
 
 

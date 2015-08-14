@@ -17,19 +17,6 @@
             $this->assertEquals("Please enter a word or a sentence(s)", $result);
         }
 
-        function test_noCount_none() {
-
-            //Arrange
-            $test_RepeatCounter = new RepeatCounter;
-            $input = null;
-
-            //Act
-            $result = $test_RepeatCounter->noCount($input, $input2);
-
-            //Assert
-            $this->assertEquals("Please enter a word or a sentence(s)", $result);
-        }
-
         function test_countRepeats_one_word() {
 
             //Arrange
@@ -44,7 +31,6 @@
             $this->assertEquals(array('word' => 1), $result);
         }
 
-
         function test_countRepeats_multiple_words() {
 
             //Arrange
@@ -58,8 +44,6 @@
             //Assert
             $this->assertEquals(array('master' => 2), $result);
         }
-
-
 
         function test_noMatch() {
 

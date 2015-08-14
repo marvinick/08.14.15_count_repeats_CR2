@@ -1,8 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/CounterRepeats.php";
-
-  session_start();
+    require_once __DIR__."/../src/CountRepeats.php";
 
   $app = new Silex\Application();
 
@@ -11,17 +9,27 @@
   $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__."/../views"));
 
   $app->get("/", function() use ($app)  {
-    return $app['twig']->render('front_page.html.twig');
+    return $app['twig']->render('home.html.twig');
   });
 
-  $app->post('/result', function() use ($app) {
+  $app->get('/result_page', function() use ($app) {
 
-    $real_RockPaperScissors = new RockPaperScissors;
+    $counter = new RepeatCounter;
 
-    $result = $real_RockPaperScissors->makeRockPaperScissors($_POST['player1'], $_POST['player2']);
-    return $app['twig']->render('result_page.html.twig') $result;
+    $result = $counter->countRepeats($_GET['input'], $_GET['input2']);
+    $result2 = $counter->noCount($_GET['input'], $_GET['input2']);
+    $result3 = $counter->noMatch($_GET['input'], $_GET['input2']);
+
+
+    return $app['twig']->render('result_page.html.twig', array('result' => $result));
+    return $app['twig']->render('result_page.html.twig', array('result' => $result2));
+    return $app['twig']->render('result_page.html.twig', array('result' => $result3));
 
   });
 
   return $app;
 ?>
+
+
+
+

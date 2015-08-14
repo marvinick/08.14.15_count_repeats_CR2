@@ -4,17 +4,47 @@
 
     class CountRepeatsTest extends PHPUnit_Framework_TestCase {
 
-        function test_noCount_none() {
+
+        function test_noinputs_both() {
 
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
             $input = null;
+            $input2 = null;
 
             //Act
-            $result = $test_RepeatCounter->noCount($input, $input2);
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals("Please enter a word or a sentence(s)", $result);
+            $this->assertEquals("Give me something to work with", $result);
+        }
+
+        function test_noinputs_input1() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = null;
+            $input2 = "word";
+
+            //Act
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
+
+            //Assert
+            $this->assertEquals("Give me something to work with", $result);
+        }
+
+        function test_noinputs_input2() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = "word";
+            $input2 = null;
+
+            //Act
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
+
+            //Assert
+            $this->assertEquals("Give me something to work with", $result);
         }
 
         function test_countRepeats_one_word() {
@@ -28,7 +58,7 @@
             $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals(array('word' => 1), $result);
+            $this->assertEquals("'word' appeared 1 time(s).", $result);
         }
 
         function test_countRepeats_multiple_words() {
@@ -42,22 +72,23 @@
             $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals(array('master' => 2), $result);
+            $this->assertEquals("'master' appeared 2 time(s).", $result);
         }
 
-        function test_noMatch() {
+        function test_no_match() {
 
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
-            $input = "re";
-            $input2 = "word";
+            $input = "word";
+            $input2 = "dog";
 
             //Act
             $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals(null, $result);
+            $this->assertEquals("'word' appeared 0 time(s).", $result);
         }
+
 
     }
 

@@ -17,14 +17,8 @@
     $counter = new RepeatCounter;
 
     $result = $counter->countRepeats($_GET['input'], $_GET['input2']);
-    $result2 = $counter->noCount($_GET['input'], $_GET['input2']);
-    $result3 = $counter->noMatch($_GET['input'], $_GET['input2']);
-
 
     return $app['twig']->render('result_page.html.twig', array('result' => $result));
-    return $app['twig']->render('result_page.html.twig', array('result' => $result2));
-    return $app['twig']->render('result_page.html.twig', array('result' => $result3));
-
   });
 
   return $app;

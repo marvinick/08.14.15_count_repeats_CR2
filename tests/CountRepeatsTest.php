@@ -88,8 +88,5 @@
             //Assert
             $this->assertEquals("'word' appeared 0 time(s).", $result);
         }
-
-
     }
-
 ?>

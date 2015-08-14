@@ -1,19 +1,29 @@
 <html>
 <head>
     <title>Repeat Counter</title>
+    <link rel='stylesheet' href='https://maxcdn.bootsrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
 </head>
-    <h1>Count them words!!</h1><br>
+<body>
+  <div class="container">
+    <div class="col-md-12">
+      <center>
+          <h1>Count them words!!</h1><br>
 
-     <form action='/result_page'>
-      <div class="form-group">
-        <label for='input'>Word</label><br>
-        <input id='input' name='input' class="form-control" type='text'>
-      </div>
-      <div class="form-group">
-        <label for='input2'>Words</label><br>
-        <input id='input2' name='input2' class="form-control" type='text'>
-      </div>
-        <button type='submit'>Let's find out</button>
-    </form>
+           <form action='/result_page'>
+            <div class="form-group">
+              <label for='input'>Word</label><br>
+              <input id='input' name='input' class="form-control" type='text'>
+            </div>
+            <br/>
+            <div class="form-group">
+              <label for='input2'>Sentence</label><br>
+              <input id='input2' name='input2' class="form-control" type='text'>
+            </div>
+            <br/>
+              <button type='submit' class="btn-primary btn-lg">Let's find out</button>
+          </form>
+      </center>
+    </div>
+  </div>
 </body>
 </html>

@@ -10,9 +10,10 @@
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
             $input = "word";
+            $input2 = "word";
 
             //Act
-            $result = $test_RepeatCounter->countRepeats($input);
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
             $this->assertEquals(array('word' => 1), $result);
@@ -23,15 +24,28 @@
 
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
-            $input = "word master manipulator master";
+            $input = "master";
+            $input2 = "word master manipulator master";
 
             //Act
-            $result = $test_RepeatCounter->countRepeats($input);
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals(array('word' => 1, 'master' => 2, 'manipulator' => 1 ), $result);
+            $this->assertEquals(array('master' => 2), $result);
         }
 
+        function test_countRepeats_none() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = null;
+
+            //Act
+            $result = $test_RepeatCounter->countRepeats($input, $input2);
+
+            //Assert
+            $this->assertEquals("Please enter a word or sentence(s)", $result);
+        }
 
     }
 

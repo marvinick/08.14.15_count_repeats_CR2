@@ -9,11 +9,3 @@ Behavior 2
 Behavior 3
 --User enters nothing
 --Program will print out a message "Please enter a word or sentence(s)"
-
-Behavior 4
---User enters special characters only
---Program will ignore and  will print out a message "Please enter a word or sentence(s)"
-
-Behavior 5
---User enters a word or sentence and special characters
---Program will count how many words total and ignore the special characters

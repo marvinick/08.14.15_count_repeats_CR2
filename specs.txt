@@ -1,11 +1,16 @@
 Behavior 1
+--User enters nothing
+--Program will print out a message "Please enter a word or sentence(s)"
+
+Behavior 2
 --User enters a word
 --Program will  determine 1 count
 
-Behavior 2
---User enters a sentence or more than on word.
+Behavior 3
+--User enters a sentence or more than one word.
 --Program will count how many words total and determine if there are any repetitive words
 
-Behavior 3
---User enters nothing
---Program will print out a message "Please enter a word or sentence(s)"
+Behavior 4
+--User enters a word and sentences that don't match.
+--Program will return nothing.
+

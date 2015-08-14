@@ -4,6 +4,31 @@
 
     class CountRepeatsTest extends PHPUnit_Framework_TestCase {
 
+        function test_noCount_none() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = null;
+
+            //Act
+            $result = $test_RepeatCounter->noCount($input, $input2);
+
+            //Assert
+            $this->assertEquals("Please enter a word or a sentence(s)", $result);
+        }
+
+        function test_noCount_none() {
+
+            //Arrange
+            $test_RepeatCounter = new RepeatCounter;
+            $input = null;
+
+            //Act
+            $result = $test_RepeatCounter->noCount($input, $input2);
+
+            //Assert
+            $this->assertEquals("Please enter a word or a sentence(s)", $result);
+        }
 
         function test_countRepeats_one_word() {
 
@@ -34,17 +59,20 @@
             $this->assertEquals(array('master' => 2), $result);
         }
 
-        function test_countRepeats_none() {
+
+
+        function test_noMatch() {
 
             //Arrange
             $test_RepeatCounter = new RepeatCounter;
-            $input = null;
+            $input = "re";
+            $input2 = "word";
 
             //Act
             $result = $test_RepeatCounter->countRepeats($input, $input2);
 
             //Assert
-            $this->assertEquals("Please enter a word or sentence(s)", $result);
+            $this->assertEquals(null, $result);
         }
 
     }
